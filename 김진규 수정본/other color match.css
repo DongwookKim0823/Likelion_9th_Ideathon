@@ -1,0 +1,30 @@
+/*         화면 분할          */
+
+.header {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.colorbar{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+
+/*      nav bar 설정          */
+.nav {
+    justify-content: center;
+}
+
+.nav a {
+    color: black
+}
+.nav a:hover{
+    color: gray;
+}
+
+.colorbar {
+    float: left 50px;
+    padding: 10px;
+    margin: 10px;
+}
+
