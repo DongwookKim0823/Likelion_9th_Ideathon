@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website"> 
+    <meta property="og:title" content="Color match">
+    <meta property="og:description" content="옷장속에 옷들의 색상을 미리 비교해보세요">
+    <meta property="og:image" content="https://likelion-ideathon.netlify.app/clothes/컨버스_검정색.png">
+    <meta property="og:url" content="https://likelion-ideathon.netlify.app">
+    <title>My Color Match</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="header">
+        <img src="title.png" style="max-width: 300px; height: auto; display: block; margin-left: auto; margin-right: auto;"></img>
+    </div>
+    <br>
+    <div class ="nav">
+         <ul class="nav nav-pills nav-fill">
+             
+             <li class="nav-item"></li>
+               <a class="nav-link active" style = background-color:rgb(218,153,121); aria-current="main.html" href="#">My Color Match</a>
+             </li>
+             <li class="nav-item2">
+               <a class="nav-link" href="other color match.html">Other Color Match</a>
+               
+             </li>
+             <li class="nav-item3">
+               <a class="nav-link" href="save list.html">Save List</a>
+             </li>
+             <li class="nav-item4">
+                 <a class="nav-link" href="q&a.html">Q&A</a>
+             </li>
+           
+         </ul>
+    </div>
+    <div class="wrapper">
+        
+        <!-----------------------------상단------------------------------------>
+     
+        
+        <!-----------------------------좌측------------------------------------>
+        <br><br>
+        <div class="dropdown">
+            <ul>
+                <li> 상의> 
+                    <ul>
+                        <li> 긴팔 티  </li>
+                        <li> 반팔 티 
+                            <ul class="pointer">
+                                <li onclick="B_Tshirt()" class="B_Tshirt"> <a href="#Tshirt">검정색</a> </li>
+                                <li onclick="N_Tshirt()" class="N_Tshirt"> <a href="#Tshirt">남색</a> </li>
+                                <li onclick="Y_Tshirt()" class="Y_Tshirt"> <a href="#Tshirt">노란색</a> </li>
+                                <li onclick="G_Tshirt()" class="G_Tshirt"> <a href="#Tshirt">초록색</a> </li>
+                                <li onclick="W_Tshirt()" class="W_Tshirt"> <a href="#Tshirt">흰색</a> </li>
+                            </ul>
+                        </li>
+                        <li>  긴팔 셔츠 </li>
+                        <li>  반팔 셔츠 </li>
+                        <li>  후드티  </li>
+                        <li>  맨투맨 </a> </li>
+                        <li>  니트 </a> </li>
+                    </ul>
+                </li>
+                <li>하의>
+                    <ul>
+                        <li>  반바지  </li>
+                        <li>  청바지  </li>
+                        <li>  반바지  </li>
+                        <li>  슬랙스  
+                            <ul class="pointer">
+                                <li onclick="B_pants()" class="B_pants">  <a href="#pants">검정색</a>  </li>
+                                <li onclick="C_pants()" class="C_pants">  <a href="#pants">크림색</a>  </li>
+                                <li onclick="D_pants()" class="D_pants">  <a href="#pants">데님</a>  </li>
+                            </ul>
+                        </li>
+                        <li>  조거팬츠  </li>
+                        <li>  트레이닝  </li>
+                       
+                    </ul>
+                </li>
+                <li> 아우터> 
+                    <ul>
+                        <li>  후드집업 </li>
+                        <li>  라이더재킷  </li>
+                        <li>  가디건  </li>
+                        <li>  트러커재킷  </li>
+                        <li>  플리스  </li>
+                        <li>  블루종  </li>
+                        <li>  무스탕  </li>
+                        <li>  블레이저  </li>
+                        <li>  져지  </li>
+                        <li>  코트  </li>
+                        <li>  트렌치재킷  </li>
+                        <li>  롱패딩  </li>
+                        <li>  숏패딩  </li>
+                        <li>  패딩조끼  </li>
+                    </ul>
+                </li>
+                
+                <li> 신발>
+                    <ul>
+                        <li>  컨버스 
+                            <ul class="pointer">
+                                <li onclick="B_shoes()" class="B_shoes"><a href="#shoes">검정색</a></li>
+                                <li onclick="C_shoes()" class="W_shoes"><a href="#shoes">크림색</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li> 모자> 
+                    <ul>
+                        <li>  캡 모자  </li>
+                        <li>  비니 </li>
+                        <li>  버킷 햇  </li>
+                        <li>  베레모  </li>
+                        <li>  트루퍼  </li>
+                    </ul>
+                </li>
+                <li> 가방>
+                    <ul>
+                        <li>  백팩  </li>
+                        <li>  메신저백 </li>
+                        <li>  에코백  </li>
+                        <li>  더플백  </li>
+                        <li>  숄더백  </li>
+                        <li>  토트백  </li>
+                    </ul>
+                </li>
+                <li> 악세서리> 
+                    <ul>
+                        <li>  시계 </li>
+                        <li>  안경 </li>
+                        <li>  팔찌 </li>
+                        <li>  목걸이 </li>
+                        <li>  양말  </li>
+                    </ul>
+                
+                
+                </li>
+            </ul>
+            
+        </div>
+        <!-----------------------------중앙------------------------------------>
+        <div class="clothes">
+            
+            <!-- <img src="dotted line box.png".png style="margin-left: 100px; max-width: 210px; height: auto;"></img> -->
+            
+            <!-- 빈상자 사진은 나중에 혹시 또 쓸 수 있으니 일단 빈상자에서 '자'만 지웠고 나중에 쓸 일 있으시면 '자'만 추가하시면 됩니다 -->
+            <p class="Tshirt">
+                <img id="Tshirt" src="./clothes/빈상.png">
+            </p>
+          
+            <p id="Pants">
+                <img id="pants" src="clothes/빈상.png">    
+            </p>
+            <table class="shoes">
+                <tr>
+                    <td><img id="shoes" src="clothes/빈상(2).png"></td><td><img id="shoes2" src="clothes/빈상(2).png"></td>
+                </tr>
+            </table>
+            <br><br><br><br><br><br><br><br><br>
+
+            <!-- <p id="Tshirt2">
+                <img id="img" src="clothes/반팔티_보라색.png">
+            </p> -->
+            
+        </div>
+        
+        
+        
+        <!-----------------------------우측------------------------------------>
+        <!-- <div class="new">
+            <div class="upper">
+                <button>나의 컬러 매치</button><br>
+                <button>추천 컬러 매치</button><br>
+                <button type="button"> <a href="https://www.google.com/search?q=%EC%9D%98%EB%A5%98+%EC%83%89%EC%83%81+%EC%A1%B0%ED%95%A9%ED%91%9C&sa=X&sxsrf=ALeKk036yT6UKiYpiU9EQFVg5HbZxGYnWA:1624952377362&tbm=isch&source=iu&ictx=1&fir=G291El0SkLKi3M%252C0s8BnAV47ps5sM%252C_&vet=1&usg=AI4_-kRGNtS-8DOup-fnQCVtlyMaWh2vVA&ved=2ahUKEwi8zuqpq7zxAhVDI6YKHSL_DLoQ9QF6BAgWEAE&biw=1546&bih=777#imgrc=m707RLUfncqJLM" target='_blank' style="color:black; text-decoration:none"> 다른 컬러 매치 <br>보러가기</a></button>
+            </div> -->
+           
+            <div class="lower">
+                <button>SAVE</button>
+                <button>DELETE</button>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
