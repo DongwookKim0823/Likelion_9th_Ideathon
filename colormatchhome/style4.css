@@ -1,0 +1,287 @@
+body{
+    width:100%;
+    height:100vh;
+    background:url(service\ difference.png);
+    background-size: 85%;
+    background-repeat: no-repeat;
+    margin: 0px;
+}
+
+.frame{
+    margin: 30px 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*navigator*/
+
+.navigator{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+li{
+    display: inline;
+    align-self: center;
+    margin:0;
+    margin-left: 15px;
+}
+
+ul{
+    margin:0;
+}
+
+.site-name{
+    margin:0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: #C2B4AB;
+}
+
+.nav-menu{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+    transition: 0.3s;
+}
+
+
+/*dashboard*/
+
+
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 70px;
+}
+
+.korean-comment{
+    color:white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    font-size: 50px;
+    text-align: center;
+}
+
+.english-comment{
+    color:white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    font-style: italic;
+
+
+    letter-spacing: -0.3px;
+}
+
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 200px;
+    text-align: center;
+}
+
+.contact{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 40px;
+    border-bottom: 2px solid black;
+}
+
+.links>a{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.footer>p{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    font-style: italic;
+    margin: 0;
+    margin-top: 5px;
+}
+
+
+
+
+
+.recent-works{
+    display: flex;
+    flex-direction: column;
+}
+
+.article{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 120px;
+    align-items: center;
+}
+
+
+
+.article-name{
+    color:white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    font-style: italic;
+
+}
+
+.article-name:hover{
+    color: pink;
+    -webkit-text-stroke: 1px black;
+    transition: 0.3s;
+}
+
+
+
+.article-comment{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.more{
+    width: content;
+    height: content;
+    float: right;
+    margin-right: 10px;
+
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0px;
+}
+
+
+#name1{
+    position: relative;
+    right: 70px;
+}
+
+#name1:hover{
+    color: skyblue;
+    align-items: center;
+
+}
+
+.white{
+    color:white;
+}
+
+a {
+    text-decoration: none;
+    color:white;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#263343;
+}
+
+.navbar__logo {
+    font-size: 24px;
+    color: white;
+}
+.navbar__logo i {
+    color:#d49466;
+}
+
+.navbar__menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.navbar__menu li {
+    padding: 8px 12px;
+}
+
+.navbar__menu li:hover {
+    background-color: #d49466;
+    border-radius: 4px;
+}
+
+
+.navbor__icons {
+    list-style: none;
+    color:white;
+    display: flex;
+    padding-left: 0;
+}
+.navbor__icons li {
+    padding: 8px 12px;
+}
+
+.navbar__links  {
+    font-size: 24px;
+    text-align: right;
+    color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-wrap: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+
+    .navbar__menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar__menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar__icons {
+        justify-content: center;
+        width: 100%;
+    }
+}
+.red {
+    color:red;
+}
+.yellow {
+    color:yellow
+}
+.green {
+    color:greenyellow;
+}
+.blue {
+    color:aquamarine;
+}
+.purple {
+    color: blueviolet;
+}
