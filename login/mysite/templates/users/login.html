@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
 {% block css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <style>
@@ -24,10 +28,10 @@
 {% endblock css %}
 
 {% block content %}
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 <div class="panel panel-default registration">
     <div class="panel-heading">
-        회원가입
+        로그인
     </div>
     <div class="panel-body">
         <form action="" method="POST">
@@ -38,22 +42,17 @@
                 <p>
                     <label for="password">비밀번호</label> <input type="password" name="password" id="password">
                 </p>
-                <p>
-                    <label for="firstname">성</label> <input type="text" name="firstname" id="firstname">
-                </p>
-                <p>
-                    <label for="lastname">이름</label> <input type="text" name="lastname" id="lastname">
-                </p>
-                <p>
-                    <label for="email">이메일 주소</label> <input type="email" name="email" id="email">
-                </p>
-                <p>
-                    <label for="nickname">닉네임</label> <input type="text" name="user_id" id="nickname">
-                </p>
                 <div>
-                    <input style="width: 325px; background-color: tan;" class="btn btn-primary btn-large" type="submit" value="회원가입">
+                    <input style="width: 325px; background-color: #d49466;" class="btn btn-primary btn-large" type="submit" value="로그인">
                 </div>
         </form>
     </div>
 </div>
 {% endblock content %}
+
+
+{% if user.is_authenticated %}
+    로그인 성공!
+    {{ user.user_id }}님 환영합니다.
+    <a href="{% url 'user:logout' %}">로그아웃</a>
+{% endif %}
