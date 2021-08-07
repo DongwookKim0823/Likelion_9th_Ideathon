@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- {% if user.is_authenticated %}
+    
+        <h5 style="margin-top:50px;">안녕하세요 "{{user.nickname}}"님!</h5>
+
+    {% endif %} -->
+    
+    <h1 id="head">Match project</h1>
+    <!-- <div>   
+        <a href = "{% url 'new' %}">작성하기</a>
+    </div> -->
+        <div class="box_container">
+
+            {% for match in matches %}
+            <div class="box">
+                {% if match.image %}  <!-- 이미지가 없을때도 오류가 나지 않도록 하기 위해서-->
+                <img src="{{match.image.url}}" alt="" style="width:200px; height:200px;"><br>
+                {% endif %}
+                <a href = "{% url 'detail' match.id %}">{{match.summary_title}}... </a>
+                <span>
+                    <br>
+                    {{match.writer}}
+                </sapn>
+                
+                
+
+
+
+
+                
+                <!-- {% if user.nickname is not None %}
+                    {{user.nickname}}
+                {% else %}
+                    {{match.writer}}
+                {% endif %} -->
+                <!-- {{match.summary}} -->
+            </div>
+                
+            {% endfor %} 
+        </div>
+
+    <br>
+    {% if matches.has_previous %} <!--이전 글이 있는지 확인-->
+    <a href="?page=1">First</a>
+    <a href="?page={{matches.previous_page_number}}">before</a>
+    {% endif %}
+
+    <span>{{matches.number}}</span>
+    <span> / </span> 
+    <span>{{matches.paginator.num_pages}}</span>
+    
+    
+    {% if matches.has_next %} 
+    <a href="?page={{matches.next_page_number}}">next</a>
+    <a href="?page={{matches.paginator.num_pages}}">Last</a>
+    {% endif %}
+{% endblock %}
