@@ -12,10 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import my_settings
 
-DATABASES = my_settings.DATABASES
-SECRET_KEY = my_settings.SECRET_KEY
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +31,7 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'account.CustomUser' #CustomUser를 사용하려면 작성해주어야함.
 
-
+SECRET_KEY = 'django-insecure-gk8)3(#%7w(532cqg!jg0m2*jhyi^+ac7**^@dm36ir%0)^p^x'
 
 
 # Application definition
@@ -83,7 +81,12 @@ WSGI_APPLICATION = 'ideathon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
