@@ -1,0 +1,86 @@
+body {
+    background-color: gray;
+    font-family: 'Do Hyeon', sans-serif;
+}
+.header {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.nav {
+    justify-content: center;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+.member {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border: 2px solid black;
+} 
+.dropdown{
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.post {
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.login {
+    text-align: right;
+}
+
+.whole {
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    height: 150px;
+    justify-content: space-around;
+}
+.img {
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    
+}
+.bottom {
+   background-color: gray;
+   display: flex;
+   flex-direction: row;
+   width: 1000px;
+   height: 50px;
+   justify-content: space-around;
+}
+.information{
+    background-color: grey;
+    width: 150px;
+    height: 50px;
+}
+
+.dropdown ul{
+    list-style: none;
+}
+
+.color {
+    width: 35px;
+    vertical-align: middle;
+}
+
+.mostcolor {
+    width: 25px;
+    
+}
+
+.text {
+    font-size: 10px;
+}
+
+.dropdown ul li a:hover {
+    text-decoration: underline;
+    color: white;
+    
+}
