@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> Update Your match</h1>
+
+<form action="{% url 'update' match.id %}" method="post" enctype="multipart/form-data"> <!-- method가 post인 경우에는 {%url 'create' %}형식을 사용하는 것을 권장 추측)get방식을 사용했을때 url을 home/wordcount처럼 겹쳐서 사용하는 것은 get방식이 url에 표시가 되는 방식이라 되지 않았나, post는 url에 표시가 되지 않기 때문에 home/wordcount식으로 url을 지정해주려 하면 따라와야 하는 데이터들이 뭔지 모르기 때문에 안되는게 아닐까-->
+    {%csrf_token%} <!-- method를 사용하고자 할때 해당 템플릿 변수를 사용하여야 함 -> Csrf 공격을 막기 위하여-->
+    <p>제목: <input type="text" name="title" value = "{{match.title}}"></p>
+    <p>작성자 : <input type="text" name="writer" value = "{{match.writer}}"></p> 
+    본문 : <textarea name="body" id="" cols="30" rows="10">{{match.body}}</textarea>
+    <p>사진: <input type="file" name="image"></p>
+    <input type="submit" value="수정">
+    <button onclick="history.back();">뒤로가기</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{match.title}}</h1>
+    <div>
+        {{match.writer}}
+        {{match.pub_date}}
+    </div>
+    
+    <hr>
+    {% if match.image %} 
+    <p><img src="{{match.image.url}}" alt=""></p>
+    {% endif %} 
+    <p>{{match.body}}</p>
+    <a href="{% url 'home' %}">홈으로</a>
+    <a href="{% url 'edit' match.id %}">수정</a>
+    <a href="{% url 'delete' match.id %}">삭제</a>
+    
+{% endblock %}

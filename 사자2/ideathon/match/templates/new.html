@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>새 글을 작성하기</h1>
+    <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <p>Writer: <input type="text" name="writer" value="{{user.nickname}}" readonly></p>
+        {{form.as_p}}
+        
+        <!-- <p>Writer : <input type="text" name='writer' value="{{user.nickname}}" readonly></p> #주석input태그 비활성화 disabled = form전송 X // readonly = form전송 O
+        <p>Title : <input type="text" name='title'></p>
+        <p>Body : <input type="text" name='body'></p>
+        <p>nickname: <input type="text" name="nicknmae" value="{{user.nickname}}"></p>
+        <p>Image : <input type="file" name='image'></p> -->
+
+        <button type='submit'>확인</button>
+        <button>
+            <a href='{% url "home" %}'>홈으로</a>
+        </button>
+
+    </form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+    <h1>Match Project</h1>
+    <!--{{blogs}}--> <!-- Query set 즉, 리스트와 같은 형태로 웹에 불러와짐. Query set은 전달받은 모델의 객체 목록을 의미함.-->
+    <div>
+        <a href="{% url 'new' %}">Create match</a>
+    </div>
+    {% for match in matches %}<!-- for문을 통해 객체 하나하나를 표현-->
+    <div class="container">
+        <!-- {{blog.id}} -->
+        <h3>{{match.title}}</h3>
+        {{match.writer}}<br>
+        {{match.summary}} <a href="{% url 'detail' match.id %}">...more</a>
+    </div>
+    {% endfor %}
+{% endblock %}
