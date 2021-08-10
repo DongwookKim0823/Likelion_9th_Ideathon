@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="detail_head_container">
+        <h1>{{match.title}}</h1>
+        <div>
+            작성자 : {{match.writer}}
+            날짜 : {{match.pub_date}}
+        </div>
+    </div>
+    
+
+    <hr class="detail_horizon">
+
+    <div class="detail_body_container">
+        {% if match.image %} <!-- 이미지가 없을때도 오류가 나지 않도록 하기 위해서-->
+        <p><img src="{{match.image.url}}" alt="" class="detail_img">
+        {% endif %}
+        </p>
+        <hr class="detail_horizon2">
+        <p class="detail_body">
+        {{match.body}}
+        </p>       
+    </div>
+
+    <footer class="footer_button">
+        <div class="detail_button">
+            <button class="detail_button_edit">
+                <a href="{% url 'edit' match.id %}">수정하기</a>
+            </button>
+            <button class="detail_button_delete">
+                <a href="{% url 'delete' match.id %}">삭제하기</a>  
+            </button>
+            <button class="detail_button_home">
+                <a href="{% url 'home'%}">홈으로</a>
+            </button>
+        </div>
+    </footer>
+    
+
+    
+    <!-- {% if user.nickname == 'match.writer' %}
+        <button>
+            <a href="{% url 'edit' match.id %}">수정하기</a>
+        </button>
+        <button>
+            <a href="{% url 'delete' match.id %}">삭제하기</a>
+        </button>
+    {% endif %} -->
+    
+    
+{% endblock %}
