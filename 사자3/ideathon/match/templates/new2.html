@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <div class = "graybox">
+        <div class="gray"><h1>Post</h1></div>
+    <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="login_box">
+            <h1 class="login_header">Login</h1>
+            <div class="ID_box">
+                <input class= "ID" type="text" name="username" placeholder="아이디" onfocus="this.placeholder='아이디'" onblur="this.placeholder='아이디'">
+            </div>
+            <div class="PW_box">
+                <input class="PW" type="password" name="password" placeholder="비밀번호" onfocus="this.placeholder='비밀번호'" onblur="this.placeholder='비밀번호'">
+            </div>
+        </div>
+
+
+        <div class="login_html_btn">
+            <button class="login_btn" type='submit'>
+                로그인
+            </button>
+            <button class="register_link_btn">
+                <a href="{% url 'register'%}" style="text-decoration: none; color:black;">회원가입</a>
+            </button>
+        </div>
+
+        <p>
+            <input type="text" name="writer" value="{{user.nickname}}" readonly>
+        </p>
+        <p>
+            <input type="text" name="title" value="제목">
+        </p>
+        {{form.as_p}}
+        
+        <!-- <p>Writer : <input type="text" name='writer' value="{{user.nickname}}" readonly></p> #주석input태그 비활성화 disabled = form전송 X // readonly = form전송 O
+        <p>Title : <input type="text" name='title'></p>
+        <p>Body : <input type="text" name='body'></p>
+        <p>nickname: <input type="text" name="nicknmae" value="{{user.nickname}}"></p>
+        <p>Image : <input type="file" name='image'></p> -->
+        <br><br><br><br>
+        <button type='submit' class ="button">확인</button>
+        <button  class = "button2">
+            <a href='{% url "home" %}'>홈</a>
+        </button>
+    </div>
+
+    </form>
+</body>
+</html>
+{% endblock %}

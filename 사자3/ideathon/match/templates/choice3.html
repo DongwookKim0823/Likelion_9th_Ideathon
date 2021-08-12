@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match</title>
+    <style>
+                /*         화면 분할          */
+        body{
+            font-family: 'Stylish', sans-serif;
+        }
+        .wrapper {
+            display: grid;
+            grid-template-columns: 35% 30% 35%;
+            grid-template-rows: 20% 80%;
+            font-family: 'Stylish', sans-serif;
+            font-size:30px;
+        }
+        .header {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+        .dropdown {
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+        .clothes {
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+        .new {
+            grid-row-start: 2;
+            grid-row-end: 4;
+        
+        }
+
+
+
+        /*         좌측 드롭다운 설정          */
+        body{
+            padding: 0px;
+            margin: 10px;
+        }
+        .dropdown ul{
+            list-style: none;
+            margin: 0;
+        }
+        .dropdown ul li{
+            padding: 15px;
+            position: relative;
+            width: 150px;
+            height: 80px;
+            border: 1px solid;
+
+            background-color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            line-height: 50px;
+        }
+        .dropdown ul ul{
+            transition: all 0.2s;
+            opacity: 0;
+            position: absolute;
+            visibility:  hidden;
+            left: 78.5%;
+            top:-1.5%;
+        }
+        .dropdown ul li:hover > ul {
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown ul li a{
+            text-decoration: none;
+            color: black;
+        }
+        .dropdown ul a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+        /*         우측 버튼 설정          */
+        button {
+            width: 170px;
+            background-color: #ffffff;
+            color:rgb(0, 0, 0);
+            padding: 15px 0;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            text-decoration: underline;
+        }
+        .upper {
+            position: absolute;
+            top: 40px;
+            right: 20px
+        }
+        .lower {
+            position: absolute;
+            bottom: 40px;
+            right: 20px
+        }
+        
+        .T-shirt {
+            width:30px;
+            height:30px;
+        }
+        
+        #Tshirt{
+            width:300px;
+            margin-left: 100px;
+        }
+        
+        #pants{
+            width:350px;
+            margin-left:75px;
+        }
+        /* #short_pants{
+            width:200px;
+            margin-left:75px;
+        } */
+        #shoes{
+            display: inline;
+            text-align:center;
+            width:150px;
+            margin-left:75px;
+        }
+        #shoes2{
+            display: inline;
+            text-align:center;
+            width:150px;
+            margin-left:50px;
+        }
+        .pointer{
+            cursor:pointer;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Dancing+Script:wght@500&family=Playfair+Display&family=Stylish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% load static %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+              <img src="{% static 'home.png' %}" alt= '' width='50' height= '50'>
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              {%if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'new' %}">Write</a>
+              </li>
+              {% endif %}
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'choice' %}" >Match</a>
+                <!-- onclick=Develop() -->
+              </li>
+              
+
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {% if user.is_authenticated %}
+                      {% if user.nickname is not None  %}
+                        {{user.nickname}}
+                      {% else %}
+                        {{user.username}}(운영자)님
+                      {% endif %}
+                    {% else %}
+                      Dropdown
+                    {% endif %}
+                    
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#" onclick=Develop()>Mypage</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  {% if user.is_authenticated %}
+                  <li><a class="dropdown-item" href="?search=true&writer={{user.nickname}}">My post</a></li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                  {% endif %} 
+                  {% if not user.is_authenticated %}
+                  <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                  <li><a class="dropdown-item" href="{% url 'register' %}">회원가입</a></li>
+                  {% endif %} 
+
+                  
+                  
+                  
+                </ul>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'home' %}" aria-current="page" style="position:absolute; left:50%; transform:translate(-50%)">
+                    <h3>Style Choice</h3>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li> -->
+              <!-- <div style="position:absolute; left:50%; top: 30%; transform:translate(-50%)">
+                Style Choice
+              </div> -->
+              
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" onclick=Develop()>Search</button>
+            </form>
+          </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+
+
+
+        <!-----------------------------상단------------------------------------>
+        <div class="header" style="text-align: center;">
+            <img src="{% static 'clothes/title.png' %}" style="max-width: 600px; height: auto;"></img>
+        </div>
+        <!-----------------------------좌측------------------------------------>
+        <br><br>
+        <div class="dropdown">
+            <ul>
+                <li> 아우터 </li>
+                <li> 모자  </li>
+                <li> 상의 
+                    <ul>
+                        <li> 긴팔 티셔츠  </li>
+                        <li> 반팔 티셔츠 
+                            <ul class="pointer">
+                                <li onclick="B_Tshirt()" class="B_Tshirt"> <a href="#Tshirt">검정색</a> </li>
+                                <li onclick="N_Tshirt()" class="N_Tshirt"> <a href="#Tshirt">남색</a> </li>
+                                <li onclick="Y_Tshirt()" class="Y_Tshirt"> <a href="#Tshirt">노란색</a> </li>
+                                <li onclick="G_Tshirt()" class="G_Tshirt"> <a href="#Tshirt">초록색</a> </li>
+                                <li onclick="W_Tshirt()" class="W_Tshirt"> <a href="#Tshirt">흰색</a> </li>
+                            </ul>
+                        </li>
+                        <li>  셔츠 </a> </li>
+                    </ul>
+                </li>
+                <li>하의
+                    <ul>
+                        <li>  긴바지 
+                            <ul class="pointer">
+                                <li onclick="B_pants()" class="B_pants">  <a href="#pants">검정색</a>  </li>
+                                <li onclick="C_pants()" class="C_pants">  <a href="#pants">크림색</a>  </li>
+                                <li onclick="D_pants()" class="D_pants">  <a href="#pants">데님</a>  </li>
+                            </ul>
+                        </li>
+                        <li>  반바지  </li>
+                    </ul>
+                </li>
+                <li> 신발 
+                    <ul>
+                        <li>  컨버스 
+                            <ul class="pointer">
+                                <li onclick="B_shoes()" class="B_shoes"><a href="#shoes">검정색</a></li>
+                                <li onclick="C_shoes()" class="W_shoes"><a href="#shoes">크림색</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li> 악세서리  </li>
+            </ul>
+        </div>
+        <!-----------------------------중앙------------------------------------>
+        <div class="clothes">
+            <!-- <img src="dotted line box.png".png style="margin-left: 100px; max-width: 210px; height: auto;"></img> -->
+            <p class="Tshirt">
+                <img id="Tshirt" src="{% static 'clothes/빈상자.png' %}">
+            </p>
+            <p class="Pants">
+                <img id = "pants" src="{% static 'clothes/빈상자.png' %}">
+            </p>
+            <table class="shoes">
+                <tr>
+                    <td><img id="shoes" src="{% static 'clothes/빈상자(2).png' %}"></td><td><img id="shoes2" src="{% static 'clothes/빈상자(2).png' %}"></td>
+                </tr>
+            </table>
+            <!-- <p id="Tshirt2">
+                <img id="img" src="clothes/반팔티_보라색.png">
+            </p> -->
+        </div>
+        
+        
+        <!-----------------------------우측------------------------------------>
+        <div class="new">
+            <div class="upper">
+                <button>
+                    <a href="#"></a>"
+                </button><br>
+                <button>추천 컬러 매치</button><br>
+                <button type="button"> 
+                    <a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=kkulkkuls&logNo=221587846538" target='_blank' style="color:black; text-decoration:none"> 다른 컬러 매치 <br>보러가기</a>
+                </button>
+            </div>
+           
+            
+
+        </div>
+
+
+
+    </div>
+</body>
+<script>
+
+    var result={
+
+        "black_T":{
+            "img":"clothes/반팔티_검정색.png",
+        },
+    }
+
+    function start() {
+        $(".start").hide();
+        $(".content").show();
+        $(".img2").hide();
+        next();
+    }
+
+
+    function B_Tshirt() {
+
+        document.getElementById("Tshirt").src="{% static 'clothes/반팔티_검정색.png' %}";
+    }
+
+    function N_Tshirt() {
+
+        document.getElementById("Tshirt").src="{% static 'clothes/반팔티_남색.png' %}";
+    }
+    function Y_Tshirt() {
+
+        document.getElementById("Tshirt").src="{% static 'clothes/반팔티_노란색.png' %}";
+    }
+    function G_Tshirt() {
+
+        document.getElementById("Tshirt").src="{% static 'clothes/반팔티_초록색.png' %}";
+    }
+    function W_Tshirt() {
+
+        document.getElementById("Tshirt").src="{% static 'clothes/반팔티_하얀색.png' %}";
+    }
+
+    function B_pants() {
+
+        document.getElementById("pants").src="{% static 'clothes/슬랙스_검정색.png' %}";
+    }
+
+    function C_pants() {
+
+        document.getElementById("pants").src="{% static 'clothes/슬랙스_크림색.png' %}";
+    }
+
+    function D_pants() {
+
+        document.getElementById("pants").src="{% static 'clothes/슬랙스_데님.png' %}";
+    }
+
+    function B_shoes() {
+
+        document.getElementById("shoes").src="{% static 'clothes/컨버스_검정색.png' %}";
+        document.getElementById("shoes2").src="{% static 'clothes/컨버스_검정색(2).png' %}";
+    }
+
+    function C_shoes() {
+
+        document.getElementById("shoes").src="{% static 'clothes/컨버스_크림색.png' %}";
+        document.getElementById("shoes2").src="{% static 'clothes/컨버스_크림색(2).png' %}";
+    }
+
+</script>
+</html>
