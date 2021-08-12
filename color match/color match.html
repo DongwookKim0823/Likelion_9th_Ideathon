@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <style>
+      /* <-----------------------------전체적용 (태그) --------------------------------------------> */
+      *{
+        text-align: center;
+      }
+      ul, li, ol, dl{
+        list-style: none;
+      }
+      
+      input:focus{
+        outline:2px solid rgb(255, 0, 0)
+      }
+      /* <------------------------------------------- base.html ------------------------------------> */
+      .home_header{
+        position:absolute; 
+        left:50%; 
+        transform:translate(-50%); 
+        margin-top:-5px;
+      }
+      
+      #home_head{
+        margin-top:0px;
+      }
+
+      #home_head:hover{
+        color: red;
+      }
+
+      #home_img{
+        width:18px;
+        height:18px;
+      }
+      
+
+      
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- <style>
+        body{text-align: center;}
+    </style> -->
+
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+              <img src="{% static 'home.png' %}" alt= '' width='50' height= '50'>
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'new' %}">Write</a>
+              </li>
+              
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'choice' %}" >Match</a>
+                <!-- onclick=Develop() -->
+              </li>
+              
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   
+                    
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#" onclick=Develop()>Mypage</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  
+                  <li><a class="dropdown-item" href="?search=true&writer={{user.nickname}}">My post</a></li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                
+                  <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                  <li><a class="dropdown-item" href="{% url 'register' %}">회원가입</a></li>
+          
+
+                  
+                  
+                  
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active home_header" href="{% url 'home' %}" aria-current="page">
+                  
+                  
+                  <h3 id="home_head">
+                    
+                    Style Ch<img src="{% static 'home.png' %}" id="home_img">ice
+                    <!-- <img src="{% static 'home.png' %}" style="width:35px; height:35px;"> -->
+                  </h3>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li> -->
+              <!-- <div style="position:absolute; left:50%; top: 30%; transform:translate(-50%)">
+                Style Choice
+              </div> -->
+              
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" onclick=Develop()>Search</button>
+            </form>
+          </div>
+        </div>
+    </nav>
+    <!-- 여기까지 base.html 입니다! -->
+    <div class="wrapper">
+        
+      <!-----------------------------상단------------------------------------>
+   
+      
+      <!-----------------------------좌측------------------------------------>
+      <br><br>
+      <div class="dropdown">
+          <ul>
+              <li> <img src =red.png style="width: 35px; vertical-align: middle;">상의> 
+                  <ul>
+                      <li> 긴팔 티
+                          <ul class="pointer">
+                              <li onclick="B_l_Tshirt()" class="B_l_Tshirt"> <a href="#l_Tshirt">검정색</a> </li>
+                              <li onclick="N_l_Tshirt()" class="N_Tshirt"> <a href="#Tshirt">남색</a> </li>
+                              <li onclick="Y_l_Tshirt()" class="Y_Tshirt"> <a href="#Tshirt">노란색</a> </li>
+                              <li onclick="G_l_Tshirt()" class="G_Tshirt"> <a href="#Tshirt">초록색</a> </li>
+                              <li onclick="W_l_Tshirt()" class="W_Tshirt"> <a href="#Tshirt">흰색</a> </li>
+                              <li onclick="S_l_Tshirt()" class="S_Tshirt"> <a href="#Tshirt">소라색</a> </li>
+                              <li onclick="P_l_Tshirt()" class="P_Tshirt"> <a href="#Tshirt">분홍색</a> </li>
+                          </ul>
+                      </li>   
+                      <li> 반팔 티 
+                          <ul class="pointer">
+                              <li onclick="B_Tshirt()" class="B_Tshirt"> <a href="#Tshirt">검정색</a> </li>
+                              <li onclick="N_Tshirt()" class="N_Tshirt"> <a href="#Tshirt">남색</a> </li>
+                              <li onclick="Y_Tshirt()" class="Y_Tshirt"> <a href="#Tshirt">노란색</a> </li>
+                              <li onclick="G_Tshirt()" class="G_Tshirt"> <a href="#Tshirt">초록색</a> </li>
+                              <li onclick="W_Tshirt()" class="W_Tshirt"> <a href="#Tshirt">흰색</a> </li>
+                              <li onclick="S_Tshirt()" class="S_Tshirt"> <a href="#Tshirt">소라색</a> </li>
+                              <li onclick="P_Tshirt()" class="P_Tshirt"> <a href="#Tshirt">분홍색</a> </li>
+                          </ul>
+                      </li>
+                      <li>  긴팔 셔츠 
+                          <ul class="pointer">
+                              <li onclick="N_l_shirt()" class="N_l_shirt"> <a href="#Tshirt">남색</a> </li>
+                              <li onclick="W_l_shirt()" class="W_l_shirt"> <a href="#Tshirt">흰색</a> </li>
+                              <li onclick="S_l_shirt()" class="S_l_shirt"> <a href="#Tshirt">소라색</a> </li>
+                              <li onclick="K_l_shirt()" class="K_l_shirt"> <a href="#Tshirt">카키색</a> </li>
+                              <li onclick="B_l_shirt()" class="B_l_shirt"> <a href="#Tshirt">베이지색</a> </li>
+                              <li onclick="G_l_shirt()" class="G_l_shirt"> <a href="#Tshirt">회색</a> </li>
+                          </ul>
+                      </li>
+                      <li>  반팔 셔츠 
+                          <ul class="pointer">
+                            <li onclick="B_shirt()" class="B_shirt"> <a href="#Tshirt">검은색</a> </li>
+                            <li onclick="N_shirt()" class="N_shirt"> <a href="#Tshirt">남색</a> </li>
+                            <li onclick="W_shirt()" class="W_shirt"> <a href="#Tshirt">흰색</a> </li>
+                            <li onclick="S_shirt()" class="S_shirt"> <a href="#Tshirt">소라색</a> </li>
+                            <li onclick="K_shirt()" class="K_shirt"> <a href="#Tshirt">카키색</a> </li>
+                            <li onclick="Be_shirt()" class="Be_shirt"> <a href="#Tshirt">베이지색</a> </li>
+                          </ul>
+                      </li>   
+                      <li>  후드티  
+                          <ul class="pointer">
+                            <li onclick="B_hoodie()" class="B_hoodie"> <a href="#Tshirt">검은색</a> </li>
+                            <li onclick="G_hoodie()" class="G_hoodie"> <a href="#Tshirt">회색</a> </li>
+                            <li onclick="N_hoodie()" class="N_hoodie"> <a href="#Tshirt">남색</a> </li>
+                            <li onclick="I_hoodie()" class="I_hoodie"> <a href="#Tshirt">아이보리</a> </li>
+                            <li onclick="Bu_hoodie()" class="Bu_hoodie"> <a href="#Tshirt">버건디</a> </li>
+                            <li onclick="P_hoodie()" class="P_hoodie"> <a href="#Tshirt">보라색</a> </li>
+                            <li onclick="Br_hoodie()" class="Br_hoodie"> <a href="#Tshirt">밤색</a> </li>
+                          </ul>
+                      </li>
+                      <li>  맨투맨 
+                          <ul class="pointer">
+                            <li onclick="B_SweatShirt()" class="B_SweatShirt"> <a href="#Tshirt">검은색</a> </li>
+                            <li onclick="G_SweatShirt()" class="G_SweatShirt"> <a href="#Tshirt">회색</a> </li>
+                            <li onclick="N_SweatShirt()" class="N_SweatShirt"> <a href="#Tshirt">남색</a> </li>
+                            <li onclick="I_SweatShirt()" class="I_SweatShirt"> <a href="#Tshirt">아이보리</a> </li>
+                            <li onclick="A_SweatShirt()" class="A_SweatShirt"> <a href="#Tshirt">애쉬블루</a> </li>
+                            <li onclick="K_SweatShirt()" class="K_SweatShirt"> <a href="#Tshirt">카키색</a> </li>
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+              <li><img src =red.png style="width: 35px; vertical-align: middle;">하의>
+                  <ul>
+                      <li>  반바지  
+                          <ul class="pointer">
+                            <li onclick="B_s_pants()" class="B_s_pants"> <a href="#pants">검은색</a> </li>
+                            <li onclick="W_s_pants()" class="W_s_pants"> <a href="#pants">흰색</a> </li>
+                            <li onclick="G_s_pants()" class="S_s_pants"> <a href="#pants">회색</a> </li>
+                            <li onclick="N_s_pants()" class="N_s_pants"> <a href="#pants">남색</a> </li>
+                            <li onclick="Be_s_pants()" class="B_s_pants"> <a href="#pants">베이지색</a> </li>
+                            <li onclick="Y_s_pants()" class="Y_s_pants"> <a href="#pants">노란색</a> </li>
+                            <li onclick="K_s_pants()" class="K_s_pants"> <a href="#pants">카키</a> </li>
+                            <li onclick="Bl_s_pants()" class="Bl_s_pants"> <a href="#pants">파란색</a> </li>
+                            <li onclick="A_sD_pants()" class="G_sD_pants"> <a href="#pants">진청</a> </li>
+                            <li onclick="B_sD_pants()" class="G_sD_pants"> <a href="#pants">중청</a> </li>
+                            <li onclick="C_sD_pants()" class="G_sD_pants"> <a href="#pants">연청</a> </li>
+                            <li onclick="D_sD_pants()" class="G_sD_pants"> <a href="#pants">흑청</a> </li>
+                          </ul>
+                      </li>
+                      <li>  청바지  
+                          <ul class="pointer">
+                            <li onclick="A_D_pants()" class="N_D_pants"> <a href="#pants">진청</a> </li>
+                            <li onclick="B_D_pants()" class="W_D_pants"> <a href="#pants">중청</a> </li>
+                            <li onclick="C_D_pants()" class="S_D_pants"> <a href="#pants">연청</a> </li>
+                            <li onclick="D_D_pants()" class="K_D_pants"> <a href="#pants">흑청</a> </li>
+                          </ul>
+                      </li>
+                      <li>  슬랙스  
+                          <ul class="pointer">
+                              <li onclick="B_pants()" class="B_pants">  <a href="#pants">검정색</a>  </li>
+                              <li onclick="C_pants()" class="C_pants">  <a href="#pants">크림색</a>  </li>
+                              <li onclick="G_pants()" class="G_pants">  <a href="#pants">회색</a>  </li>
+                              <li onclick="Br_pants()" class="Br_pants">  <a href="#pants">밤색</a>  </li>
+                          </ul>
+                      </li>
+                      <li>  조거팬츠  
+                          <ul class="pointer">
+                              <li onclick="B_J_pants()" class="B_J_pants"> <a href="#pants">검정색</a> </li>
+                              <li onclick="G_J_pants()" class="G_J_pants"> <a href="#pants">회색</a> </li>
+                              <li onclick="N_J_pants()" class="N_J_pants"> <a href="#pants">남색</a> </li>
+                              <li onclick="Bu_J_pants()" class="Bu_J_pants"> <a href="#pants">버건디</a> </li>
+                              <li onclick="I_J_pants()" class="I_J_pants"> <a href="#pants">아아보리</a> </li>
+                          </ul>
+                      </li>
+                      <li>  트레이닝  
+                          <ul class="pointer">
+                              <li onclick="B_T_pants()" class="B_T_pants"> <a href="#pants">검정색</a> </li>
+                              <li onclick="G_T_pants()" class="G_T_pants"> <a href="#pants">회색</a> </li>
+                              <li onclick="N_T_pants()" class="N_T_pants"> <a href="#pants">남색</a> </li>
+                              <li onclick="I_T_pants()" class="I_T_pants"> <a href="#pants">아이보리</a> </li>
+                              <li onclick="R_T_pants()" class="R_T_pants"> <a href="#pants">빨간색</a> </li>
+                              <li onclick="Gr_T_pants()" class="Gr_T_pants"> <a href="#pants">초록색</a> </li>
+                              <li onclick="Bl_T_pants()" class="Bl_T_pants"> <a href="#pants">파란색</a> </li>
+                          </ul>
+                      </li>
+                       
+                  </ul>
+              </li>
+              
+              <li> <img src =red.png style="width: 35px; vertical-align: middle;">신발>
+                  <ul>
+                      <li>  컨버스 
+                          <ul class="pointer">
+                              <li onclick="B_shoes()" class="B_shoes"><a href="#shoes">검정색</a></li>
+                              <li onclick="C_shoes()" class="W_shoes"><a href="#shoes">크림색</a></li>
+                              <li onclick="G_shoes()" class="G_shoes"><a href="#shoes">회색</a></li>
+                              <li onclick="R_shoes()" class="R_shoes"><a href="#shoes">빨간색</a></li>
+                              <li onclick="P_shoes()" class="P_shoes"><a href="#shoes">분홍색</a></li>
+                              <li onclick="Y_shoes()" class="Y_shoes"><a href="#shoes">노란색</a></li>
+                              <li onclick="Gr_shoes()" class="Gr_shoes"><a href="#shoes">초록색</a></li>
+                              <li onclick="Bl_shoes()" class="Bl_shoes"><a href="#shoes">파란색</a></li>
+                              <li onclick="N_shoes()" class="N_shoes"><a href="#shoes">남색</a></li>
+                              <li onclick="Pu_shoes()" class="Pu_shoes"><a href="#shoes">보라색</a></li>
+
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+          <br><br><br><br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br><br><br><br>
+          <div style="text-align: left; padding-left: 30px;"><img src =black.png style="width: 30px; vertical-align: middle; "><a href="pictogram.html">픽토그램 제공></a></div>
+          
+      </div>
+      <!-----------------------------중앙------------------------------------>
+      <div class="clothes">
+          
+          <!-- <img src="dotted line box.png".png style="margin-left: 100px; max-width: 210px; height: auto;"></img> -->
+          
+          <!-- 빈상자 사진은 나중에 혹시 또 쓸 수 있으니 일단 빈상자에서 '자'만 지웠고 나중에 쓸 일 있으시면 '자'만 추가하시면 됩니다 -->
+          
+              <img id="Tshirt" src="./clothes/빈상.png">
+         
+        
+         
+              <img id="pants" src="clothes/빈상.png">    
+          
+          <table class="shoes">
+              <tr>
+                  <td><img id="shoes" src="clothes/빈상(2).png"></td><td><img id="shoes2" src="clothes/빈상(2).png"></td>
+              </tr>
+          </table>
+          <br><br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br><br>
+
+
+          <!-- <p id="Tshirt2">
+              <img id="img" src="clothes/반팔티_보라색.png">
+          </p> -->
+          
+      </div>
+
+</body>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</html>

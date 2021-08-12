@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <style>
+      /* <-----------------------------전체적용 (태그) --------------------------------------------> */
+      *{
+        text-align: center;
+      }
+      ul, li, ol, dl{
+        list-style: none;
+      }
+      
+      input:focus{
+        outline:2px solid rgb(255, 0, 0)
+      }
+      /* <------------------------------------------- base.html ------------------------------------> */
+      .home_header{
+        position:absolute; 
+        left:50%; 
+        transform:translate(-50%); 
+        margin-top:-5px;
+      }
+      
+      #home_head{
+        margin-top:0px;
+      }
+
+      #home_head:hover{
+        color: red;
+      }
+
+      #home_img{
+        width:18px;
+        height:18px;
+      }
+      
+
+      
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- <style>
+        body{text-align: center;}
+    </style> -->
+
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+              <img src="{% static 'home.png' %}" alt= '' width='50' height= '50'>
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'new' %}">Write</a>
+              </li>
+              
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'choice' %}" >Match</a>
+                <!-- onclick=Develop() -->
+              </li>
+              
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   
+                    
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#" onclick=Develop()>Mypage</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  
+                  <li><a class="dropdown-item" href="?search=true&writer={{user.nickname}}">My post</a></li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                
+                  <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                  <li><a class="dropdown-item" href="{% url 'register' %}">회원가입</a></li>
+          
+
+                  
+                  
+                  
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active home_header" href="{% url 'home' %}" aria-current="page">
+                  
+                  
+                  <h3 id="home_head">
+                    
+                    Style Ch<img src="{% static 'home.png' %}" id="home_img">ice
+                    <!-- <img src="{% static 'home.png' %}" style="width:35px; height:35px;"> -->
+                  </h3>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li> -->
+              <!-- <div style="position:absolute; left:50%; top: 30%; transform:translate(-50%)">
+                Style Choice
+              </div> -->
+              
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" onclick=Develop()>Search</button>
+            </form>
+          </div>
+        </div>
+    </nav>
+    <!-- 여기까지 base.html 입니다! -->
+    
+<div style="border-radius: 12px; border: 2px solid black;">반팔티 <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     긴팔티 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     트레이닝 팬츠 <div>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     조거팬츠 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     슬랙스 <div>Icons made by <a href="" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     긴팔셔츠 <div>Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     반팔셔츠 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     컨버스 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     후드티 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     맨투맨 <div>Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     반바지 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     청 반바지<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+     청바지 <div>Icons made by <a href="" title="Nhor Phai">Nhor Phai</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+</div>
+</body>
+</html>
