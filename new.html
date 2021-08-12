@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <div class = "graybox">
+        <div class="gray"><h1>Post</h1></div>
+    <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>이름: <input type="text" name="writer" value="{{user.nickname}}" readonly></p>
+        {{form.as_p}}
+        
+        <!-- <p>Writer : <input type="text" name='writer' value="{{user.nickname}}" readonly></p> #주석input태그 비활성화 disabled = form전송 X // readonly = form전송 O
+        <p>Title : <input type="text" name='title'></p>
+        <p>Body : <input type="text" name='body'></p>
+        <p>nickname: <input type="text" name="nicknmae" value="{{user.nickname}}"></p>
+        <p>Image : <input type="file" name='image'></p> -->
+        <br><br><br><br>
+        <button type='submit' class ="button">확인</button>
+        <button  class = "button2">
+            <a href='{% url "home" %}'>홈</a>
+        </button>
+    </div>
+
+    </form>
+</body>
+</html>
+{% endblock %}
