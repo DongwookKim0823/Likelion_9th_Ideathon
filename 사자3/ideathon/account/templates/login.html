@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <form class="login_form" action="{% url 'login' %}" method="POST" autocomplete="off">
+        {%csrf_token%}
+        <div class="login_box">
+            <h1 class="login_header">Login</h1>
+            <div class="ID_box">
+                <input class= "ID" type="text" name="username" placeholder="아이디" onfocus="this.placeholder='아이디'" onblur="this.placeholder='아이디'">
+            </div>
+            <div class="PW_box">
+                <input class="PW" type="password" name="password" placeholder="비밀번호" onfocus="this.placeholder='비밀번호'" onblur="this.placeholder='비밀번호'">
+            </div>
+        </div>
+
+
+        <div class="login_html_btn">
+            <button class="login_btn" type='submit'>
+                로그인
+            </button>
+            <button class="register_link_btn">
+                <a href="{% url 'register'%}" style="text-decoration: none; color:black;">회원가입</a>
+            </button>
+        </div>
+        
+    </form>
+{% endblock %}
