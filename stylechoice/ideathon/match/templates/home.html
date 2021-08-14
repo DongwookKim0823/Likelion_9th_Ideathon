@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- {% if user.is_authenticated %}
+    
+        <h5 style="margin-top:50px;">안녕하세요 "{{user.nickname}}"님!</h5>
+
+    {% endif %} -->
+    <div class="home_container">
+        <div class="home_box_header">
+            <h3 id="head">
+                Today's Daily_Look
+            </h3>
+        </div>
+        
+        <div class="home_box_container">
+
+            {% for match in matches %}
+            <div class="box">
+                 <!-- 이미지가 없을때도 오류가 나지 않도록 하기 위해서-->
+                <ul style="padding-left: 0px; margin-bottom:0px;">
+                    <li>
+                        
+                        <a href = "{% url 'detail' match.id %}" class="a_link">
+                            {% if match.image %} 
+                            <img src="{{match.image.url}}" class="home_img" alt="게시글로 이동"><br>
+                            {% endif %}
+                        </a>
+                        <dl>
+                            <dt>
+                                <a href="{% url 'detail' match.id %}" class="a_link">
+                                    <p class="home_title">
+                                        {{match.summary_title}} ... 
+                                    </p> <!-- span 태그는 스타일 속성이 자기만큼만 잡힘-->
+                                </a>
+                            </dt>
+                            <dd>
+                                <a href="{% url 'detail' match.id %}" class="a_link">
+                                    <p class="home_writer">
+                                        {{match.writer}}
+                                    </p>
+                                </a>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+                
+                
+                
+                
+
+
+
+
+                
+                <!-- {% if user.nickname is not None %}
+                    {{user.nickname}}
+                {% else %}
+                    {{match.writer}}
+                {% endif %} -->
+                <!-- {{match.summary}} -->
+            </div>
+            {% endfor %}
+
+            
+                
+            
+        </div>
+        <div class="home_paginator_button">
+            {% if matches.has_previous %} <!--이전 글이 있는지 확인-->
+                <div class="prev_button">
+                    <button class="first_button">
+                        <a href="?page=1">((--First</a>
+                    </button>
+                    <button class="before_button">
+                        <a href="?page={{matches.previous_page_number}}">before</a>
+                    </button>
+                </div>
+                {% endif %}
+            
+                <div class="with_paginator">
+                    {{matches.number}} / {{matches.paginator.num_pages}}
+                </div>
+    
+    
+                {% if matches.has_next %}
+                <div class="next_button">
+                    <button class="next">
+                        <a href="?page={{matches.next_page_number}}">next</a>
+                    </button>
+                    <button class="last_button">
+                        <a href="?page={{matches.paginator.num_pages}}">Last--))</a>
+                    </button>
+                </div>
+        
+        
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- <div>   
+        <a href = "{% url 'new' %}">작성하기</a>
+    </div> -->
+        
+
+    
+    
+{% endblock %}
